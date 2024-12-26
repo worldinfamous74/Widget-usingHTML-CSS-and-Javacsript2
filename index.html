@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #active-bg{
+        position: absolute;
+        color: var(--tab-active-color)
+        !important;
+        width: 100%;
+        font-weight: 700;
+        max-width: var(--tab-width);
+        transition: transform 0.3s;
+        height: 100%;
+        bottom: 0;
+        background: var(--tab-bg);
+        z-index: 1;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        transition: 0.5s;
+        border-radius: var(--tab-radius);
+    }
+
+    .tabs li:nth-child(1).active-#active-bg{
+        transform: translateX(calc(0)
+        );
+    }
+
+    .tabs li:nth-child(2).active-#active-bg{
+        transform: translateX(calc(var(--tab-width))
+        );
+    }
+
+    .tabs li:nth-child(2).active-#active-bg{
+        transform: translateX(calc(var(--tab-width) *2)
+        );
+    }
+
+    .new-entities{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 1rem;
+        color: var(--text-color);
+        border-radius: 0.5rem;
+        box-shadow: var(--widget-shadow);
+    }
+
+    .new-entities__header{
+        display: flex;
+        justify-content: start;
+        gap: 1rem;
+    }
+
+    .new-entities__total{
+        display: flex;
+        color: var(--headline-color);
+        font-size: 0.75rem;
+        justify-content: space-between;
+    }
+
+    .new-entities__right{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .new-entities__right a{
+        color: var(--text-color);
+        font-size: 0.75rem;
+        text-decoration: none;
+        background: var(--tabs-bg);
+        display: flex;
+        align-items: center;
+        padding: 0.35rem 0.75rem;
+        border-radius: 99rem;
+        margin-bottom: 0.65rem;
+        justify-content: center;
+        border: 2px solid var(--tab-bg);
+        transition: all 0.3s;
+        }
+
+    .new-entities__right a:hover{
+        border: 2px solid var(--primary);
+    }
+</style>
+
+
+<body>
+    <article class="widget">
+        <header class="widget__header">
+            <h2>Key indicators</h2>
+        </header>
+        <div class="tabs=wrapper">
+            <ul class="tabs">
+                <li class="active">
+                    <a id="tab1" tabindex="1" href="#new-users" class="active">
+                    Users
+                    </a>
+                </li>
+
+
+                <!--More listing itmes-->
+
+
+
+                <li id="active-bg"></li>       
+            </ul>
+        </div>
+
+        <div id="tab1-content" class="tab-content tab-content--active">
+            <article class="new-entities">
+                <header class="new-entities__header">
+                    <div class="top-entity-avatar"><img src="img/Sam..jpg" alt="avatar"></div>
+                    <div class="top-entity-info">
+                        <div><h3>Top User</h3><p>Samuel Adah</p></div>
+                        <div><h3>Daily Purchase</h3><p>23 Items</p></div>
+                    </div>
+                </header>
+
+                <div class="divider"></div>
+                <div class="new-entities__total">
+                    <div>
+                        <h2>Total New Users</h2>
+                        <p>3.7k</p>
+                        <ul class="avatars">
+                            <li><img src="img/Sam..jpg" alt="avatar"></li>
+                            <!--More Listings-->
+                        </ul>
+                    </div>
+
+                    <div class="new-entities__right">
+                        <div class="new-entities__indicator">8,35\</div>
+                        <a href="#learn-more" tabindex="4" title="learn more">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <p class="new-entities__footer">
+                <!--Full Message-->
+            </p>
+        </div>
+        <!--more divs-->
+    </article>
+
+
+
+    <script src="script.js">
+        const allLinks = document.querySelectorAll(".tabs a");
+        const allTabs = document.querySelectorAll(".tab-content");
+
+        allLinks.forEach((elem) => {
+            elem.addEventListener("click", function () {
+                const linkId = elem.id;
+                const hrefLinkClck = elem.href;
+
+                allLinks.forEach((link) =>{
+                    const li = link.closest("li");
+
+                    if (link.href == hrefLinkClick) {
+                        li.classList.add("active");
+                    } else {
+                      li.classList.remove("active");
+                    }
+                });
+
+                allTabs.forEach((tab) => {
+                    const id = tab.id;
+                    if (id.includes(linkId)) {
+                        tab.classList.add("tab-content--active");
+                    }
+                });
+            });
+        });
+    </script>
+
+    
+</body>
+</html>
